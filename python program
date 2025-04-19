@@ -1,0 +1,69 @@
+
+advisors = {'keith': '122', 'jon': '210', 'paul': '311', 'dennis': '501'}
+
+pdi_vehicle = {'carnival': '1.0', 'forte':'0.8', 'k5': '0.9', 'niro': '1.0',
+			   'seltos': '0.9', 'soul': '0.9', 'sportage': '0.9', 'sportage phev': '1.0', 'telluride': '1.3'}
+
+ticket_number = {}
+
+date = []
+
+on_time = []
+late = []
+
+day = input("what is today's date: ")
+ticket_number['day'] = day
+
+while True:
+	print('Press exit to stop the program')
+
+	ticket = input('Ticket number: ')
+	if ticket == 'exit':
+		break
+	ticket_number['Ticket'] = ticket
+
+	person = input("Who's the advisor on this ticket: ")
+	ticket_number['Advisor'] = person
+
+	vehicle = input('What is the model of the car: ')
+	# if vehicle not in pdi_vehicle:
+	#	print('Incorrect Value, try again')
+	ticket_number['Vehicle'] = vehicle
+
+	time_in = input('Time in: ')
+	ticket_number['Time In'] = time_in
+
+	time_out = input('Time out: ')
+	ticket_number['Time Out'] = time_out
+
+	time_ran = input('How much time did you run: ')
+	ticket_number['Time ran'] = time_ran
+
+	# next_day = input('Was the ticket closed out')
+	EOD = input('Was the ticket closed out before you left ')
+	ticket_number['EOD'] = EOD
+
+	if EOD == 'no':
+		late.append(ticket)
+	elif EOD == 'yes':
+		on_time.append(ticket)
+	else:
+		print('incorrect value, try again')
+
+for key, value in ticket_number.items():
+	print(f'\n{key}:')
+	print(f'\t{value}')
+
+print(f'Closed Late: {late}')
+print(f'Closed Same day: {on_time}')
+
+
+view = input('What ticket do you want to view:')
+for view in ticket_number.values():
+	print(view)
+
+
+another = input('Stay open')
+#if EOD == 'no':
+#	late.append(EOD)
+#print(late)
